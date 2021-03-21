@@ -44,10 +44,11 @@ services:
     environment:
       MYSQL_USER: root
       MYSQL_ROOT_PASSWORD: secret
-      MYSQL_PASSWORD: secret
+   #   MYSQL_USER: tobias
+   #   MYSQL_PASSWORD: secret
     networks:
       - nginx-php74-mysql8-node
-  # node
+        # node
   node-service:
     image: node:latest
     container_name: node-container
