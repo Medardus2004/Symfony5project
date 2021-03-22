@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 class MainController extends AbstractController
 {
@@ -13,13 +14,16 @@ class MainController extends AbstractController
      */
     public function index()
     {
-        return new Response('<h1>Willkommen TMT GmbH & Co. KG - Team</h1>');
+        return $this->render('home/index.html.twig');
     }
 
     /**
-     * @Route("/introduction", name="introduction")
+     * @Route("/introduction/{name?}", name="introduction")
      */
-    public function introduction() {
-        return new Response('<h1>Willkommen TMT GmbH & Co. KG</h1>');
+    public function introduction(Request $request) {
+        $name = $request->get('name');
+        return $this->render('home/introduction.html.twig', [
+            'name' => $name
+        ]);    
     }
 }
