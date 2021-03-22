@@ -1,2 +1,6 @@
 {
+    "require": {
+        "doctrine/orm": "^2.8",
+        "cweagans/composer-patches": "^1.7"
+    }
 }
